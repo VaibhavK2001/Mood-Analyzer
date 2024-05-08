@@ -2,19 +2,29 @@ package org.example;
 
 public class MoodAnalyzer {
 
-    public String analyzeMood(String mood){
-       if (mood.equalsIgnoreCase("I am in sad mood")){
+    String message = "";
+
+    public MoodAnalyzer(){
+
+    }
+
+    public MoodAnalyzer(String message){
+        this.message = message.toLowerCase();
+    }
+
+    public String analyzeMood(){
+        if (message.contains("sad")){
             return "SAD";
-        }else{
+        } else if (message.contains("happy")) {
             return "HAPPY";
+        }else {
+            return null;
         }
     }
 
     public static void main(String[] args) {
 
         System.out.println("Welcome to Mood Analyzer Problem");
-        MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-        String mood = moodAnalyzer.analyzeMood("I am in any mood");
-        System.out.println(mood);
+
     }
 }
