@@ -8,8 +8,8 @@ class MoodAnalyzerTest {
 
     @Test
     public void exceptionHandlingTest() {
-        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("SAD");
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
         String mood = moodAnalyzer.analyzeMood();
-        Assertions.assertEquals("SAD",mood);
+        Assertions.assertEquals("HAPPY",mood);
     }
 }
