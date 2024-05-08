@@ -1,6 +1,8 @@
 package org.example;
 
-public class MoodAnalyzer {
+import java.sql.SQLOutput;
+
+public class MoodAnalyzer extends  Exception{
 
     String message = "";
 
@@ -9,17 +11,27 @@ public class MoodAnalyzer {
     }
 
     public MoodAnalyzer(String message){
-        this.message = message.toLowerCase();
+        this.message = message;
     }
 
     public String analyzeMood(){
-        if (message.contains("sad")){
+        try{
+            if (message == null) {
+                throw new NullPointerException();
+            }
+        }
+        catch(NullPointerException e){
+                System.out.println("Invalid input 'null'");
+                return "HAPPY";
+            }
+
+        if (message.toLowerCase().contains("sad")){
             return "SAD";
-        } else if (message.contains("happy")) {
-            return "HAPPY";
-        }else {
+        }
+        else {
             return "HAPPY";
         }
+
     }
 
     public static void main(String[] args) {
