@@ -9,7 +9,7 @@ class MoodAnalyzerTest {
     @Test
     public void MoodAnalysisExceptionTest() throws MoodAnalysisException{
 
-        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
         String mood = moodAnalyzer.analyzeMood();
         Assertions.assertEquals("HAPPY",mood);
     }

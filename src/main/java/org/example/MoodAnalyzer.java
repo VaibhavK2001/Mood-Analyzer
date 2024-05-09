@@ -30,6 +30,7 @@ public class MoodAnalyzer extends Exception{
               throw new MoodAnalysisException("HAPPY");
           }
       }catch(MoodAnalysisException e){
+          System.out.println("Mood cannot be empty or null");
           return e.getMessage();
       }
         if (message.toLowerCase().contains("sad")){
@@ -45,7 +46,6 @@ public class MoodAnalyzer extends Exception{
     public static void main(String[] args) {
 
         System.out.println("Welcome to Mood Analyzer Problem");
-
 
     }
 }
