@@ -35,7 +35,7 @@ public class MoodAnalyzer{
     public static void main(String[] args) {
 
         System.out.println("Welcome to Mood Analyzer Problem");
-        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("");
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
         try{
             String mood = moodAnalyzer.analyzeMood();
             System.out.println(mood);
