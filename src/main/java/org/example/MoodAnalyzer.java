@@ -1,5 +1,9 @@
 package org.example;
 
+enum Mood{
+    HAPPY,SAD,NULL,EMPTY;
+}
+
 class MoodAnalysisException extends  Exception{
 
     public MoodAnalysisException(String str){
@@ -7,7 +11,7 @@ class MoodAnalysisException extends  Exception{
     }
 }
 
-public class MoodAnalyzer{
+public class MoodAnalyzer extends Exception{
 
     String message = "";
 
@@ -20,28 +24,28 @@ public class MoodAnalyzer{
     }
 
     public String analyzeMood() throws MoodAnalysisException{
-      if (message == null || message.isEmpty()){
-          throw new MoodAnalysisException("Invalid Mood, input cannot be null or empty");
+        Mood mood;
+      try{
+          if (message == null || message.isEmpty()){
+              throw new MoodAnalysisException("HAPPY");
+          }
+      }catch(MoodAnalysisException e){
+          return e.getMessage();
       }
         if (message.toLowerCase().contains("sad")){
-            return "SAD";
+            mood = Mood.SAD;
         }
         else {
-            return "HAPPY";
+            mood = Mood.HAPPY;
         }
+        return mood.toString();
 
     }
 
     public static void main(String[] args) {
 
         System.out.println("Welcome to Mood Analyzer Problem");
-        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
-        try{
-            String mood = moodAnalyzer.analyzeMood();
-            System.out.println(mood);
-        }catch (MoodAnalysisException e){
-            System.out.println(e);
-        }
+
 
     }
 }
